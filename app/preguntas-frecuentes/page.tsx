@@ -2,11 +2,12 @@
 
 import { useState } from "react";
 import type { ReactNode } from "react";
+import ImagePlaceholder from "@/components/ImagePlaceholder";
 
 const faqs: { q: string; a: ReactNode }[] = [
   {
     q: "¿Qué tipos de rodamientos distribuyen?",
-    a: "Distribuimos la gama completa de rodamientos: rodamientos de bolas de ranura profunda, angulares de contacto, de doble hilera, de rodillos cilíndricos, cónicos, esféricos de rodillos, de agujas, axiales y especiales. Cubrimos tanto dimensiones métricas como imperiales.",
+    a: "Distribuimos la gama completa de rodamientos: de bolas de ranura profunda, angulares de contacto, de doble hilera, de rodillos cilíndricos, cónicos, esféricos de rodillos, de agujas, axiales y especiales. Cubrimos tanto dimensiones métricas como imperiales.",
   },
   {
     q: "¿Cómo puedo estar seguro de que los productos son originales?",
@@ -22,7 +23,7 @@ const faqs: { q: string; a: ReactNode }[] = [
       <span>
         Depende de la disponibilidad del producto y el destino:
         <ul className="list-disc ml-5 mt-2 space-y-1">
-          <li>Stock local: 1–3 días hábiles</li>
+          <li>Stock en Zona Libre de Colón: 1–3 días hábiles</li>
           <li>Importación de fabricante: 2–6 semanas</li>
           <li>Urgencias: consultar disponibilidad de envío express</li>
         </ul>
@@ -39,15 +40,15 @@ const faqs: { q: string; a: ReactNode }[] = [
   },
   {
     q: "¿Pueden ayudarme a seleccionar el rodamiento correcto?",
-    a: "¡Absolutamente! Contamos con un equipo de ingenieros especializados en selección de rodamientos. Puedes enviarnos las especificaciones de tu aplicación (velocidad, cargas, temperatura, dimensiones del eje y alojamiento) y te proporcionamos la recomendación técnica adecuada.",
+    a: "Absolutamente. Contamos con un equipo de especialistas que estudia constantemente el mercado. Puedes enviarnos las especificaciones de tu aplicación (velocidad, cargas, temperatura, dimensiones del eje y alojamiento) y te proporcionamos la recomendación técnica adecuada.",
   },
   {
     q: "¿Cómo puedo solicitar una cotización?",
-    a: "Puedes solicitarla a través de nuestro formulario de contacto en la página de Contáctanos, enviando un correo a info@ivorbearingsint.com, o llamándonos directamente. Te respondemos en menos de 24 horas hábiles.",
+    a: "Puedes solicitarla a través de nuestro formulario de contacto, enviando un correo a ventas@ivorbearingsint.com, por WhatsApp al +507-69725465, o llamando directamente a nuestra oficina. Te respondemos en menos de 24 horas hábiles.",
   },
   {
     q: "¿Ofrecen crédito o facilidades de pago?",
-    a: "Para clientes recurrentes y empresas, evaluamos la apertura de líneas de crédito. Aceptamos transferencias bancarias, divisas internacionales y para ciertos clientes, carta de crédito. Contáctanos para conocer las condiciones.",
+    a: "Para clientes recurrentes y empresas, evaluamos la apertura de líneas de crédito. Aceptamos transferencias bancarias, divisas internacionales y, para ciertos clientes, carta de crédito. Contáctanos para conocer las condiciones.",
   },
   {
     q: "¿Atienden a pequeñas empresas y talleres?",
@@ -58,8 +59,8 @@ const faqs: { q: string; a: ReactNode }[] = [
     a: "Sí, tenemos acceso a los catálogos técnicos digitales de todos los fabricantes que representamos. Puedes solicitarlos a través de nuestro formulario de contacto indicando la marca y tipo de producto de tu interés.",
   },
   {
-    q: "¿Qué información necesito para cotizar un rodamiento por número de parte?",
-    a: "Solo necesitamos el número de referencia o part number del fabricante (por ejemplo: SKF 6205-2RS, FAG 22320-E1-K, Timken 30205). Si no tienes el número de parte, necesitamos las dimensiones: diámetro interior (bore), diámetro exterior, ancho y tipo de rodamiento.",
+    q: "¿Qué información necesito para cotizar por número de parte?",
+    a: "Solo necesitamos el número de referencia del fabricante (por ejemplo: SKF 6205-2RS, FAG 22320-E1-K, Timken 30205). Si no tienes el número de parte, necesitamos las dimensiones: diámetro interior, diámetro exterior, ancho y tipo de rodamiento.",
   },
 ];
 
@@ -74,7 +75,7 @@ function FAQItem({ q, a }: { q: string; a: ReactNode }) {
         <span className="font-semibold text-primary-800 group-hover:text-primary-900 transition-colors">
           {q}
         </span>
-        <span className={`text-primary-600 shrink-0 transition-transform ${open ? "rotate-180" : ""}`}>
+        <span className={`text-primary-500 shrink-0 transition-transform duration-200 ${open ? "rotate-180" : ""}`}>
           <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
           </svg>
@@ -89,35 +90,47 @@ function FAQItem({ q, a }: { q: string; a: ReactNode }) {
 
 export default function FAQPage() {
   return (
-    <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <div className="text-center mb-12">
-        <h1 className="text-4xl font-bold text-primary-900 mb-4">Preguntas Frecuentes</h1>
-        <p className="text-gray-500">
-          Encuentra respuestas a las preguntas más comunes sobre nuestros productos,
-          procesos de compra y servicios.
-        </p>
-      </div>
+    <>
+      {/* Hero */}
+      <section className="relative bg-primary-900 text-white overflow-hidden">
+        <div className="absolute inset-0">
+          <ImagePlaceholder label="Hero FAQ" ratio="" className="w-full h-full rounded-none opacity-20" />
+        </div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
+          <p className="text-primary-200 uppercase tracking-[0.25em] text-sm font-semibold mb-4">
+            Preguntas Frecuentes
+          </p>
+          <h1 className="text-5xl md:text-6xl font-black mb-6 leading-none">
+            Resolvemos<br />tus dudas
+          </h1>
+          <p className="text-lg text-primary-100 max-w-xl leading-relaxed">
+            Encuentra respuestas a las preguntas más comunes sobre nuestros productos,
+            procesos de compra y servicios.
+          </p>
+        </div>
+      </section>
 
-      <div className="bg-white rounded-2xl shadow-sm border border-gray-100 px-6">
-        {faqs.map(({ q, a }) => (
-          <FAQItem key={q} q={q} a={a} />
-        ))}
-      </div>
+      {/* FAQ */}
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="bg-white rounded-2xl shadow-sm border border-gray-100 px-6 divide-y divide-gray-100">
+          {faqs.map(({ q, a }) => (
+            <FAQItem key={q} q={q} a={a} />
+          ))}
+        </div>
 
-      <div className="mt-10 text-center bg-primary-50 rounded-xl p-8 border border-primary-100">
-        <h2 className="text-xl font-semibold text-primary-800 mb-2">
-          ¿No encontraste tu respuesta?
-        </h2>
-        <p className="text-gray-500 text-sm mb-5">
-          Escríbenos o llámanos. Nuestro equipo técnico está listo para ayudarte.
-        </p>
-        <a
-          href="/contactanos"
-          className="inline-block bg-primary-700 hover:bg-primary-800 text-white font-semibold px-6 py-3 rounded-lg transition-colors"
-        >
-          Contactar al Equipo Técnico
-        </a>
+        <div className="mt-10 text-center bg-primary-50 rounded-xl p-8 border border-primary-100">
+          <h2 className="text-xl font-bold text-primary-900 mb-2">¿No encontraste tu respuesta?</h2>
+          <p className="text-gray-500 text-sm mb-6">
+            Escríbenos o llámanos. Nuestro equipo de especialistas está listo para ayudarte.
+          </p>
+          <a
+            href="/contactanos"
+            className="inline-block bg-primary-900 hover:bg-primary-700 text-white font-bold px-6 py-3 rounded-lg transition-colors"
+          >
+            Contactar al Equipo Técnico
+          </a>
+        </div>
       </div>
-    </div>
+    </>
   );
 }

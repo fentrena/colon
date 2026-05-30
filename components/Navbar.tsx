@@ -5,12 +5,13 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 
 const links = [
-  { href: "/", label: "Inicio" },
-  { href: "/nuestros-productos", label: "Nuestros Productos" },
+  { href: "/", label: "Nosotros" },
+  { href: "/nuestros-productos", label: "Productos" },
   { href: "/marcas", label: "Marcas" },
-  { href: "/preguntas-frecuentes", label: "Preguntas Frecuentes" },
+  { href: "/nuestros-productos#catalogo", label: "Catálogo" },
+  { href: "/preguntas-frecuentes", label: "FAQ" },
   { href: "/blog", label: "Blog" },
-  { href: "/contactanos", label: "Contáctanos" },
+  { href: "/contactanos", label: "Contacto" },
 ];
 
 export default function Navbar() {
@@ -19,32 +20,25 @@ export default function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 bg-primary-900 shadow-md">
-      {/* Top banner placeholder */}
-      <div className="w-full bg-primary-800 flex items-center justify-center h-[60px] border-b border-primary-700">
-        <span className="text-primary-300 text-xs uppercase tracking-widest">
-          Banner — IVOR Bearings INT
-        </span>
-      </div>
-
-      {/* Nav */}
-      <nav className="bg-primary-900">
+      <nav>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
-            {/* Logo wordmark */}
+            {/* Logo */}
             <Link href="/" className="flex items-center gap-2 shrink-0">
-              <span className="w-9 h-9 rounded-full border-2 border-primary-300 flex items-center justify-center text-primary-100 font-black text-sm">
+              <div className="w-9 h-9 rounded-full border-2 border-primary-300 flex items-center justify-center text-primary-100 font-black text-sm shrink-0">
                 IV
-              </span>
-              <span className="text-white font-black tracking-wide text-lg">
-                IVOR <span className="text-primary-300 font-bold">BEARINGS</span>
-              </span>
+              </div>
+              <div className="leading-none">
+                <span className="block text-white font-black tracking-wide text-base">IVOR BEARINGS</span>
+                <span className="block text-primary-300 text-[10px] tracking-widest uppercase">International</span>
+              </div>
             </Link>
 
             {/* Desktop links */}
-            <div className="hidden md:flex items-center gap-1">
+            <div className="hidden lg:flex items-center gap-0.5">
               {links.map(({ href, label }) => (
                 <Link
-                  key={href}
+                  key={href + label}
                   href={href}
                   className={`px-3 py-2 text-sm font-medium rounded transition-colors ${
                     pathname === href
@@ -59,7 +53,7 @@ export default function Navbar() {
 
             {/* Mobile toggle */}
             <button
-              className="md:hidden text-primary-200 hover:text-white p-2"
+              className="lg:hidden text-primary-200 hover:text-white p-2"
               onClick={() => setOpen(!open)}
               aria-label="Menú"
             >
@@ -76,10 +70,10 @@ export default function Navbar() {
 
         {/* Mobile menu */}
         {open && (
-          <div className="md:hidden bg-primary-800 border-t border-primary-700 px-4 py-3 flex flex-col gap-1">
+          <div className="lg:hidden bg-primary-800 border-t border-primary-700 px-4 py-3 flex flex-col gap-1">
             {links.map(({ href, label }) => (
               <Link
-                key={href}
+                key={href + label}
                 href={href}
                 onClick={() => setOpen(false)}
                 className={`px-3 py-2 text-sm font-medium rounded transition-colors ${

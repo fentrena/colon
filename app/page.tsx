@@ -1,67 +1,71 @@
 import Link from "next/link";
 import ImagePlaceholder from "@/components/ImagePlaceholder";
 
+const stats = [
+  { value: "47+", label: "Años de experiencia" },
+  { value: "500+", label: "Colaboradores" },
+  { value: "6", label: "Países" },
+  { value: "20+", label: "Marcas líderes" },
+];
+
 const categories = [
   {
     title: "Rodamientos",
-    description: "Rodamientos de bolas, rodillos, cónicos, esféricos, agujas y más.",
+    description: "Rodamientos de bolas, rodillos cilíndricos, cónicos, esféricos, agujas y axiales de las mejores marcas del mundo.",
+  },
+  {
+    title: "Transmisión de Potencia",
+    description: "Correas, cadenas, sprockets, acoplamientos y poleas para cualquier aplicación industrial.",
   },
   {
     title: "Sellos y Retenes",
-    description: "Sellos de aceite, retenes métricos e imperiales, sellos de laberinto.",
+    description: "Sellos de aceite, retenes métricos e imperiales y O-rings para todo tipo de equipos.",
   },
   {
-    title: "Cadenas y Sprockets",
-    description: "Cadenas de transmisión de potencia, cadenas de conveyors y sprockets.",
+    title: "Chumaceras",
+    description: "Chumaceras de pie, flange y cartridge con rodamientos incorporados para montaje rápido.",
   },
   {
-    title: "Correas",
-    description: "Correas en V, correas sincrónicas, correas planas y poli-V.",
+    title: "Herramientas de Montaje",
+    description: "Extractores, calentadores por inducción y herramientas especializadas para instalación segura.",
   },
   {
-    title: "Acoplamientos",
-    description: "Acoplamientos flexibles, rígidos, de disco y de grilla.",
-  },
-  {
-    title: "Herramientas y Accesorios",
-    description: "Extractores, calentadores por inducción, lubricantes especializados.",
+    title: "Lubricación",
+    description: "Grasas y aceites industriales de alta performance para rodamientos, cadenas y engranajes.",
   },
 ];
 
-const brands = ["SKF", "FAG", "NSK", "NTN", "Timken", "INA", "IKO", "Koyo"];
-
-const stats = [
-  { value: "20+", label: "Años de experiencia" },
-  { value: "500+", label: "Marcas y referencias" },
-  { value: "50+", label: "Países de distribución" },
-  { value: "24/7", label: "Soporte técnico" },
-];
+const countries = ["Venezuela", "Miami, EE. UU.", "Panamá", "Costa Rica", "Rep. Dominicana"];
 
 export default function HomePage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-primary-900 text-white py-20 px-4">
-        <div className="max-w-7xl mx-auto text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
-            Distribuidores de{" "}
-            <span className="text-primary-200">Rodamientos</span> y<br />
-            Componentes Industriales
-          </h1>
-          <p className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto mb-10">
-            Más de 20 años suministrando las mejores marcas del mundo al sector industrial.
-            Calidad garantizada, entregas a tiempo y asesoría técnica especializada.
+      <section className="relative bg-primary-900 text-white overflow-hidden">
+        <div className="absolute inset-0">
+          <ImagePlaceholder label="Hero principal" ratio="" className="w-full h-full rounded-none opacity-30" />
+        </div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-28 md:py-36">
+          <p className="text-primary-200 uppercase tracking-[0.25em] text-sm font-semibold mb-4">
+            Ivor Bearings International
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-black mb-6 leading-none tracking-tight">
+            The Perfect<br />Balance
+          </h1>
+          <p className="text-lg md:text-xl text-primary-100 max-w-xl mb-10 leading-relaxed">
+            Líderes en la distribución de rodamientos y productos de transmisión de potencia
+            de las mejores marcas del mundo. Más de 47 años de experiencia internacional.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4">
             <Link
               href="/nuestros-productos"
-              className="bg-white hover:bg-primary-100 text-primary-900 font-semibold px-8 py-3 rounded-lg transition-colors"
+              className="inline-block bg-white hover:bg-primary-100 text-primary-900 font-bold px-8 py-4 rounded-lg transition-colors"
             >
               Ver Productos
             </Link>
             <Link
               href="/contactanos"
-              className="border border-gray-400 hover:border-white text-gray-300 hover:text-white font-semibold px-8 py-3 rounded-lg transition-colors"
+              className="inline-block border border-primary-400 hover:border-white text-primary-200 hover:text-white font-semibold px-8 py-4 rounded-lg transition-colors"
             >
               Contáctanos
             </Link>
@@ -70,36 +74,75 @@ export default function HomePage() {
       </section>
 
       {/* Stats */}
-      <section className="bg-primary-800 text-white py-10">
-        <div className="max-w-7xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+      <section className="bg-primary-800 text-white py-12">
+        <div className="max-w-7xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
           {stats.map(({ value, label }) => (
             <div key={label}>
-              <p className="text-3xl font-bold text-white">{value}</p>
-              <p className="text-sm text-gray-400 mt-1">{label}</p>
+              <p className="text-4xl font-black text-white mb-1">{value}</p>
+              <p className="text-sm text-primary-300 uppercase tracking-wide">{label}</p>
             </div>
           ))}
         </div>
       </section>
 
-      {/* Categories */}
-      <section className="py-16 px-4">
+      {/* Nosotros / Our Legacy */}
+      <section className="py-20 px-4 bg-white">
+        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+          <div>
+            <p className="text-primary-600 uppercase tracking-widest text-xs font-bold mb-4">Nuestra Historia</p>
+            <h2 className="text-4xl font-black text-primary-900 mb-6 leading-tight">
+              Más de 47 años construyendo el equilibrio perfecto
+            </h2>
+            <p className="text-gray-600 leading-relaxed mb-5">
+              Fundada en 1976 en Venezuela bajo el nombre Rodamientos Rovi, nuestra organización
+              nació de una visión emprendedora y del compromiso de servir las necesidades de la
+              industria con productos de calidad y un trato cercano.
+            </p>
+            <p className="text-gray-600 leading-relaxed mb-5">
+              Lo que comenzó como un proyecto local evolucionó hasta convertirse en una empresa con
+              alcance regional, siempre guiada por los mismos valores que inspiraron a su fundador:
+              honestidad, compromiso y confianza.
+            </p>
+            <p className="text-gray-600 leading-relaxed mb-8">
+              Hoy operamos a través de nuestras entidades clave, IVOR Bearings Inc. e IVOR Bearings Int.,
+              con presencia en 6 países y más de 500 colaboradores de diferentes nacionalidades.
+            </p>
+            <div className="flex flex-wrap gap-2">
+              {countries.map((c) => (
+                <span key={c} className="bg-primary-50 text-primary-700 border border-primary-100 text-sm px-3 py-1 rounded-full font-medium">
+                  {c}
+                </span>
+              ))}
+            </div>
+          </div>
+          <div className="rounded-2xl overflow-hidden">
+            <ImagePlaceholder label="Foto corporativa / instalaciones" ratio="aspect-[4/3]" />
+          </div>
+        </div>
+      </section>
+
+      {/* Productos */}
+      <section className="py-20 px-4 bg-primary-50">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-primary-900 mb-3">Nuestros Productos</h2>
-            <p className="text-gray-500 max-w-xl mx-auto">
-              Ofrecemos una amplia gama de componentes industriales para satisfacer las necesidades
-              de cualquier sector.
+          <div className="text-center mb-14">
+            <p className="text-primary-600 uppercase tracking-widest text-xs font-bold mb-3">Nuestros Productos</p>
+            <h2 className="text-4xl font-black text-primary-900 mb-4">
+              Soluciones para cada aplicación industrial
+            </h2>
+            <p className="text-gray-500 max-w-2xl mx-auto">
+              Ofrecemos una gama completa de rodamientos y productos de transmisión de potencia
+              para elevar el rendimiento de las máquinas de nuestros clientes.
             </p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {categories.map(({ title, description }) => (
               <div
                 key={title}
-                className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md hover:border-primary-400 transition-all group"
+                className="bg-white rounded-xl border border-primary-100 overflow-hidden hover:shadow-md hover:border-primary-300 transition-all group"
               >
-                <ImagePlaceholder label={title} ratio="aspect-[4/3]" />
+                <ImagePlaceholder label={title} ratio="aspect-video" />
                 <div className="p-6">
-                  <h3 className="text-lg font-semibold text-primary-800 mb-2 group-hover:text-primary-900 transition-colors">
+                  <h3 className="text-lg font-bold text-primary-800 mb-2 group-hover:text-primary-900 transition-colors">
                     {title}
                   </h3>
                   <p className="text-gray-500 text-sm leading-relaxed">{description}</p>
@@ -107,93 +150,57 @@ export default function HomePage() {
               </div>
             ))}
           </div>
-          <div className="text-center mt-10">
+          <div className="text-center mt-12">
             <Link
               href="/nuestros-productos"
-              className="inline-block bg-primary-700 hover:bg-primary-800 text-white font-semibold px-8 py-3 rounded-lg transition-colors"
+              className="inline-block bg-primary-900 hover:bg-primary-700 text-white font-bold px-8 py-4 rounded-lg transition-colors"
             >
-              Ver Catálogo Completo
+              Ver catálogo completo
             </Link>
           </div>
         </div>
       </section>
 
-      {/* Brands strip */}
-      <section className="bg-gray-100 py-12 px-4">
+      {/* Marcas strip */}
+      <section className="py-16 px-4 bg-white border-t border-gray-100">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-center text-xl font-semibold text-primary-800 mb-8">
-            Marcas que Distribuimos
+          <p className="text-center text-primary-600 uppercase tracking-widest text-xs font-bold mb-3">Marcas que Distribuimos</p>
+          <h2 className="text-center text-2xl font-black text-primary-900 mb-10">
+            Las mejores marcas del mundo
           </h2>
-          <div className="flex flex-wrap justify-center gap-4">
-            {brands.map((brand) => (
-              <span
+          <div className="flex flex-wrap justify-center gap-3">
+            {["SKF", "FAG", "NSK", "NTN", "Timken", "INA", "IKO", "Koyo", "Gates", "Renold"].map((brand) => (
+              <div
                 key={brand}
-                className="bg-white border border-gray-200 text-primary-700 font-bold text-sm px-6 py-3 rounded-lg shadow-sm"
+                className="bg-primary-50 border border-primary-100 rounded-lg px-6 py-3 text-center min-w-[80px]"
               >
-                {brand}
-              </span>
+                <ImagePlaceholder label={brand} ratio="" className="w-16 h-10 mb-1 mx-auto" />
+                <p className="text-primary-800 font-bold text-sm">{brand}</p>
+              </div>
             ))}
           </div>
           <div className="text-center mt-8">
-            <Link href="/marcas" className="text-primary-700 hover:underline font-medium text-sm">
+            <Link href="/marcas" className="text-primary-700 hover:text-primary-900 font-semibold text-sm hover:underline">
               Ver todas las marcas →
             </Link>
           </div>
         </div>
       </section>
 
-      {/* Why us */}
-      <section className="py-16 px-4">
-        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-          <div>
-            <h2 className="text-3xl font-bold text-primary-900 mb-6">
-              ¿Por qué elegir IVOR Bearings International?
-            </h2>
-            <ul className="space-y-5">
-              {[
-                {
-                  title: "Productos 100% originales",
-                  desc: "Trabajamos directamente con fabricantes y distribuidores autorizados para garantizar la autenticidad de cada componente.",
-                },
-                {
-                  title: "Asesoría técnica especializada",
-                  desc: "Nuestro equipo de ingenieros te ayuda a seleccionar el componente correcto para tu aplicación.",
-                },
-                {
-                  title: "Amplio stock disponible",
-                  desc: "Miles de referencias en inventario listas para entrega inmediata a nivel nacional e internacional.",
-                },
-                {
-                  title: "Precios competitivos",
-                  desc: "Ofrecemos las mejores condiciones comerciales del mercado sin comprometer la calidad.",
-                },
-              ].map(({ title, desc }) => (
-                <li key={title} className="flex gap-3">
-                  <span className="mt-1 text-primary-600">
-                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                    </svg>
-                  </span>
-                  <div>
-                    <p className="font-semibold text-primary-800">{title}</p>
-                    <p className="text-gray-500 text-sm">{desc}</p>
-                  </div>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className="bg-primary-900 rounded-2xl p-8 text-white text-center">
-            <h3 className="text-2xl font-bold mb-3">¿Necesitas una cotización?</h3>
-            <p className="text-gray-300 mb-6 text-sm">
-              Contáctanos con tu lista de requerimientos y te responderemos en menos de 24 horas.
-            </p>
-            <Link
-              href="/contactanos"
-              className="inline-block bg-white hover:bg-primary-100 text-primary-900 font-semibold px-6 py-3 rounded-lg transition-colors"
-            >
-              Solicitar Cotización
-            </Link>
-          </div>
+      {/* CTA cotización */}
+      <section className="py-20 px-4 bg-primary-900 text-white">
+        <div className="max-w-3xl mx-auto text-center">
+          <h2 className="text-4xl font-black mb-4">¿Necesitas una cotización?</h2>
+          <p className="text-primary-200 text-lg mb-8 leading-relaxed">
+            Nuestro equipo de especialistas está listo para ayudarte a encontrar el producto
+            correcto. Respondemos en menos de 24 horas hábiles.
+          </p>
+          <Link
+            href="/contactanos"
+            className="inline-block bg-white hover:bg-primary-100 text-primary-900 font-bold px-10 py-4 rounded-lg transition-colors"
+          >
+            Solicitar Cotización
+          </Link>
         </div>
       </section>
     </>
