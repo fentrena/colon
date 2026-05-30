@@ -1,33 +1,28 @@
 import Link from "next/link";
+import ImagePlaceholder from "@/components/ImagePlaceholder";
 
 const categories = [
   {
-    icon: "⚙️",
     title: "Rodamientos",
     description: "Rodamientos de bolas, rodillos, cónicos, esféricos, agujas y más.",
   },
   {
-    icon: "🔩",
     title: "Sellos y Retenes",
     description: "Sellos de aceite, retenes métricos e imperiales, sellos de laberinto.",
   },
   {
-    icon: "🔗",
     title: "Cadenas y Sprockets",
     description: "Cadenas de transmisión de potencia, cadenas de conveyors y sprockets.",
   },
   {
-    icon: "📡",
     title: "Correas",
     description: "Correas en V, correas sincrónicas, correas planas y poli-V.",
   },
   {
-    icon: "🔧",
     title: "Acoplamientos",
     description: "Acoplamientos flexibles, rígidos, de disco y de grilla.",
   },
   {
-    icon: "🛠️",
     title: "Herramientas y Accesorios",
     description: "Extractores, calentadores por inducción, lubricantes especializados.",
   },
@@ -50,7 +45,7 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
             Distribuidores de{" "}
-            <span className="text-accent-400">Rodamientos</span> y<br />
+            <span className="text-primary-200">Rodamientos</span> y<br />
             Componentes Industriales
           </h1>
           <p className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto mb-10">
@@ -60,7 +55,7 @@ export default function HomePage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/nuestros-productos"
-              className="bg-accent-500 hover:bg-accent-600 text-white font-semibold px-8 py-3 rounded-lg transition-colors"
+              className="bg-white hover:bg-primary-100 text-primary-900 font-semibold px-8 py-3 rounded-lg transition-colors"
             >
               Ver Productos
             </Link>
@@ -79,7 +74,7 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
           {stats.map(({ value, label }) => (
             <div key={label}>
-              <p className="text-3xl font-bold text-accent-400">{value}</p>
+              <p className="text-3xl font-bold text-white">{value}</p>
               <p className="text-sm text-gray-400 mt-1">{label}</p>
             </div>
           ))}
@@ -97,16 +92,18 @@ export default function HomePage() {
             </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {categories.map(({ icon, title, description }) => (
+            {categories.map(({ title, description }) => (
               <div
                 key={title}
-                className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 hover:shadow-md hover:border-accent-400 transition-all group"
+                className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md hover:border-primary-400 transition-all group"
               >
-                <div className="text-4xl mb-4">{icon}</div>
-                <h3 className="text-lg font-semibold text-primary-800 mb-2 group-hover:text-accent-600 transition-colors">
-                  {title}
-                </h3>
-                <p className="text-gray-500 text-sm leading-relaxed">{description}</p>
+                <ImagePlaceholder label={title} ratio="aspect-[4/3]" />
+                <div className="p-6">
+                  <h3 className="text-lg font-semibold text-primary-800 mb-2 group-hover:text-primary-900 transition-colors">
+                    {title}
+                  </h3>
+                  <p className="text-gray-500 text-sm leading-relaxed">{description}</p>
+                </div>
               </div>
             ))}
           </div>
@@ -138,7 +135,7 @@ export default function HomePage() {
             ))}
           </div>
           <div className="text-center mt-8">
-            <Link href="/marcas" className="text-accent-600 hover:underline font-medium text-sm">
+            <Link href="/marcas" className="text-primary-700 hover:underline font-medium text-sm">
               Ver todas las marcas →
             </Link>
           </div>
@@ -172,7 +169,7 @@ export default function HomePage() {
                 },
               ].map(({ title, desc }) => (
                 <li key={title} className="flex gap-3">
-                  <span className="mt-1 text-accent-500">
+                  <span className="mt-1 text-primary-600">
                     <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                     </svg>
@@ -186,14 +183,13 @@ export default function HomePage() {
             </ul>
           </div>
           <div className="bg-primary-900 rounded-2xl p-8 text-white text-center">
-            <div className="text-6xl mb-4">🏭</div>
             <h3 className="text-2xl font-bold mb-3">¿Necesitas una cotización?</h3>
             <p className="text-gray-300 mb-6 text-sm">
               Contáctanos con tu lista de requerimientos y te responderemos en menos de 24 horas.
             </p>
             <Link
               href="/contactanos"
-              className="inline-block bg-accent-500 hover:bg-accent-600 text-white font-semibold px-6 py-3 rounded-lg transition-colors"
+              className="inline-block bg-white hover:bg-primary-100 text-primary-900 font-semibold px-6 py-3 rounded-lg transition-colors"
             >
               Solicitar Cotización
             </Link>

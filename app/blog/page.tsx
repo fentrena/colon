@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import ImagePlaceholder from "@/components/ImagePlaceholder";
 
 export const metadata: Metadata = {
   title: "Blog – IVOR Bearings International",
@@ -57,18 +58,14 @@ const placeholderPosts = [
   },
 ];
 
-const categoryColors: Record<string, string> = {
-  "Guía Técnica": "bg-blue-100 text-blue-700",
-  "Comparativa": "bg-purple-100 text-purple-700",
-  "Mantenimiento": "bg-green-100 text-green-700",
-};
+const categoryStyle = "bg-primary-100 text-primary-700";
 
 export default function BlogPage() {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       {/* Header */}
       <div className="text-center mb-12">
-        <span className="inline-block bg-accent-500 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide mb-4">
+        <span className="inline-block bg-primary-700 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide mb-4">
           Próximamente
         </span>
         <h1 className="text-4xl font-bold text-primary-900 mb-4">Blog Técnico</h1>
@@ -81,9 +78,9 @@ export default function BlogPage() {
       {/* Coming soon notice */}
       <div className="bg-primary-50 border border-primary-100 rounded-xl p-6 text-center mb-10">
         <p className="text-primary-700 font-medium text-sm">
-          🚧 El blog está en construcción. Los artículos se irán publicando progresivamente.
+          El blog está en construcción. Los artículos se irán publicando progresivamente.
           ¿Quieres ser notificado cuando publiquemos contenido nuevo?{" "}
-          <Link href="/contactanos" className="underline hover:text-accent-600">
+          <Link href="/contactanos" className="underline hover:text-primary-900">
             Suscríbete aquí
           </Link>
           .
@@ -95,19 +92,22 @@ export default function BlogPage() {
         {placeholderPosts.map(({ title, excerpt, category, date, readTime }) => (
           <div
             key={title}
-            className="bg-white rounded-xl border border-gray-100 shadow-sm p-6 flex flex-col opacity-75"
+            className="bg-white rounded-xl border border-gray-100 shadow-sm overflow-hidden flex flex-col opacity-90"
           >
-            <div className="flex items-center justify-between mb-3">
-              <span className={`text-xs font-semibold px-2 py-1 rounded-full ${categoryColors[category] ?? "bg-gray-100 text-gray-600"}`}>
-                {category}
-              </span>
-              <span className="text-xs text-gray-400">{readTime} lectura</span>
-            </div>
-            <h2 className="font-semibold text-primary-800 mb-3 leading-snug">{title}</h2>
-            <p className="text-gray-500 text-sm leading-relaxed flex-1">{excerpt}</p>
-            <div className="mt-5 pt-4 border-t border-gray-100 flex items-center justify-between">
-              <span className="text-xs text-gray-400">{date}</span>
-              <span className="text-xs text-gray-400 italic">IVOR Bearings</span>
+            <ImagePlaceholder label="Artículo" ratio="aspect-[16/9]" />
+            <div className="p-6 flex flex-col flex-1">
+              <div className="flex items-center justify-between mb-3">
+                <span className={`text-xs font-semibold px-2 py-1 rounded-full ${categoryStyle}`}>
+                  {category}
+                </span>
+                <span className="text-xs text-gray-400">{readTime} lectura</span>
+              </div>
+              <h2 className="font-semibold text-primary-800 mb-3 leading-snug">{title}</h2>
+              <p className="text-gray-500 text-sm leading-relaxed flex-1">{excerpt}</p>
+              <div className="mt-5 pt-4 border-t border-gray-100 flex items-center justify-between">
+                <span className="text-xs text-gray-400">{date}</span>
+                <span className="text-xs text-gray-400 italic">IVOR Bearings</span>
+              </div>
             </div>
           </div>
         ))}
@@ -122,7 +122,7 @@ export default function BlogPage() {
         </p>
         <Link
           href="/contactanos"
-          className="inline-block bg-accent-500 hover:bg-accent-600 text-white font-semibold px-8 py-3 rounded-lg transition-colors"
+          className="inline-block bg-white hover:bg-primary-100 text-primary-900 font-semibold px-8 py-3 rounded-lg transition-colors"
         >
           Contactar al Equipo Técnico
         </Link>

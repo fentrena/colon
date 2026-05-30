@@ -71,10 +71,10 @@ function FAQItem({ q, a }: { q: string; a: ReactNode }) {
         className="w-full flex justify-between items-center py-5 text-left gap-4 group"
         onClick={() => setOpen(!open)}
       >
-        <span className="font-semibold text-primary-800 group-hover:text-accent-600 transition-colors">
+        <span className="font-semibold text-primary-800 group-hover:text-primary-900 transition-colors">
           {q}
         </span>
-        <span className={`text-accent-500 shrink-0 transition-transform ${open ? "rotate-180" : ""}`}>
+        <span className={`text-primary-600 shrink-0 transition-transform ${open ? "rotate-180" : ""}`}>
           <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
           </svg>

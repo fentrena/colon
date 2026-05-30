@@ -85,8 +85,8 @@ export default function ContactPage() {
         <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-8">
           {sent ? (
             <div className="text-center py-12">
-              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg className="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg className="w-8 h-8 text-primary-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                 </svg>
               </div>
@@ -186,11 +186,11 @@ export default function ContactPage() {
             <ul className="space-y-5">
               {contactInfo.map(({ icon, label, value, href }) => (
                 <li key={label} className="flex items-start gap-4">
-                  <div className="text-accent-400 mt-0.5 shrink-0">{icon}</div>
+                  <div className="text-primary-200 mt-0.5 shrink-0">{icon}</div>
                   <div>
                     <p className="text-xs text-gray-400 uppercase tracking-wide mb-0.5">{label}</p>
                     {href ? (
-                      <a href={href} className="text-white hover:text-accent-400 transition-colors text-sm">
+                      <a href={href} className="text-white hover:text-primary-200 transition-colors text-sm">
                         {value}
                       </a>
                     ) : (
@@ -223,7 +223,7 @@ export default function ContactPage() {
             </p>
           </div>
 
-          <div className="bg-accent-500 rounded-2xl p-6 text-white">
+          <div className="bg-primary-800 rounded-2xl p-6 text-white">
             <h3 className="font-semibold mb-2">Respuesta en menos de 24h</h3>
             <p className="text-sm opacity-90">
               Nos comprometemos a responder todas las solicitudes de cotización dentro de las

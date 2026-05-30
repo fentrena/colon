@@ -79,7 +79,7 @@ export default function ProductsPage() {
       <div className="space-y-12">
         {products.map(({ category, emoji, items }) => (
           <section key={category}>
-            <div className="flex items-center gap-3 mb-6 pb-3 border-b-2 border-accent-500">
+            <div className="flex items-center gap-3 mb-6 pb-3 border-b-2 border-primary-700">
               <span className="text-3xl">{emoji}</span>
               <h2 className="text-2xl font-bold text-primary-800">{category}</h2>
             </div>
@@ -87,7 +87,7 @@ export default function ProductsPage() {
               {items.map(({ name, desc }) => (
                 <div
                   key={name}
-                  className="bg-white rounded-xl border border-gray-100 shadow-sm p-5 hover:shadow-md hover:border-accent-400 transition-all"
+                  className="bg-white rounded-xl border border-gray-100 shadow-sm p-5 hover:shadow-md hover:border-primary-400 transition-all"
                 >
                   <h3 className="font-semibold text-primary-800 mb-2">{name}</h3>
                   <p className="text-gray-500 text-sm leading-relaxed">{desc}</p>
@@ -107,7 +107,7 @@ export default function ProductsPage() {
         </p>
         <Link
           href="/contactanos"
-          className="inline-block bg-accent-500 hover:bg-accent-600 text-white font-semibold px-8 py-3 rounded-lg transition-colors"
+          className="inline-block bg-white hover:bg-primary-100 text-primary-900 font-semibold px-8 py-3 rounded-lg transition-colors"
         >
           Solicitar Producto Específico
         </Link>

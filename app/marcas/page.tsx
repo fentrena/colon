@@ -118,12 +118,17 @@ export default function BrandsPage() {
             key={name}
             className="bg-white rounded-xl border border-gray-100 shadow-sm p-6 hover:shadow-md transition-shadow"
           >
-            <div className="flex items-start justify-between mb-3">
-              <div>
-                <h2 className="text-xl font-bold text-primary-800">{name}</h2>
-                <p className="text-accent-600 text-sm font-medium">{specialty}</p>
+            <div className="flex items-start justify-between mb-3 gap-4">
+              <div className="flex items-start gap-3">
+                <div className="w-16 h-16 shrink-0 flex items-center justify-center bg-primary-100 border border-dashed border-primary-300 text-primary-400 rounded-lg">
+                  <span className="text-[9px] font-medium uppercase tracking-wide">Logo</span>
+                </div>
+                <div>
+                  <h2 className="text-xl font-bold text-primary-800">{name}</h2>
+                  <p className="text-primary-700 text-sm font-medium">{specialty}</p>
+                </div>
               </div>
-              <div className="text-right text-xs text-gray-400 shrink-0 ml-4">
+              <div className="text-right text-xs text-gray-400 shrink-0">
                 <p>{country}</p>
                 <p>Desde {founded}</p>
               </div>
