@@ -2,15 +2,45 @@
 @tailwind components;
 @tailwind utilities;
 
+/*
+ * Monument Extended (fuente comercial de Pangram Pangram Foundry).
+ * Coloca los archivos con licencia en /public/fonts/ con estos nombres exactos.
+ * Mientras no existan, el navegador cae en Inter automáticamente (sin romper nada).
+ */
+@font-face {
+  font-family: "Monument Extended";
+  src: url("/fonts/MonumentExtended-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Monument Extended";
+  src: url("/fonts/MonumentExtended-Ultrabold.woff2") format("woff2");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #0f172a;
+  /* Stack de headings: Monument primero, Inter como fallback */
+  --font-display: "Monument Extended", Inter, system-ui, sans-serif;
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
   font-family: Inter, system-ui, sans-serif;
+}
+
+/* Headings usan Monument Extended (con fallback a Inter) */
+h1,
+h2,
+h3,
+.font-display {
+  font-family: var(--font-display);
 }
 
 @layer utilities {
