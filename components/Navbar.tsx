@@ -15,10 +15,10 @@ const primaryLeft = [
 
 // Menú lateral completo (hamburguesa)
 const drawerLinks = [
-  { href: "/#quienes-somos", label: "Nosotros" },
+  { href: "/nosotros", label: "Nosotros" },
   { href: "/nuestros-productos", label: "Productos" },
   { href: "/marcas", label: "Marcas" },
-  { href: "/nuestros-productos#catalogo", label: "Catálogo" },
+  { href: "/catalogos", label: "Catálogo" },
   { href: "/preguntas-frecuentes", label: "FAQ" },
   { href: "/blog", label: "Blog" },
   { href: "/contactanos", label: "Contacto" },

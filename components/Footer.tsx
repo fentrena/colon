@@ -7,10 +7,10 @@ import { useState, FormEvent } from "react";
 const BASE = "https://ivorbearingsint.com/wp-content/uploads";
 
 const menuLinks = [
-  { href: "/#quienes-somos", label: "Nosotros" },
+  { href: "/nosotros", label: "Nosotros" },
   { href: "/nuestros-productos", label: "Productos" },
   { href: "/marcas", label: "Marcas" },
-  { href: "/nuestros-productos#catalogo", label: "Catálogo" },
+  { href: "/catalogos", label: "Catálogo" },
   { href: "/contactanos", label: "Contacto" },
 ];
 

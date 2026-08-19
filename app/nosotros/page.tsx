@@ -1,32 +1,18 @@
+import type { Metadata } from "next";
 import Image from "next/image";
+
+export const metadata: Metadata = {
+  title: "Nosotros – Ivor Bearings Int",
+  description: "Moviendo el mundo desde 1976. Más de 50 años distribuyendo rodamientos y productos de transmisión de potencia.",
+};
 
 const BASE = "https://ivorbearingsint.com/wp-content/uploads";
 
-// Logos oficiales con nombre real (reemplazan a los 27 numerados)
-const brandLogos = [
-  "abb",
-  "allied",
-  "ami",
-  "aurora",
-  "bandor",
-  "hitachi",
-  "kfb",
-  "koyo",
-  "lesson",
-  "lovejoy",
-  "master",
-  "rbc",
-  "regina",
-  "renolds",
-  "rex",
-  "thk",
-].map((name) => `/2024/11/${name}.png`);
-
-export default function HomePage() {
+export default function NosotrosPage() {
   return (
     <>
-      {/* HERO con video de fondo */}
-      <section className="relative bg-hero text-white min-h-[calc(100vh-72px)] flex flex-col overflow-hidden">
+      {/* HERO con video */}
+      <section className="relative bg-navy text-white min-h-[calc(100vh-72px)] flex items-center overflow-hidden">
         <video
           autoPlay
           muted
@@ -34,45 +20,23 @@ export default function HomePage() {
           playsInline
           className="absolute inset-0 w-full h-full object-cover"
         >
-          <source src={`${BASE}/2024/10/IVOR-Banners-Web-INT.mp4`} type="video/mp4" />
+          <source src={`${BASE}/2024/11/about.mp4`} type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-black/40" />
 
-        <div className="relative flex-1 max-w-7xl w-full mx-auto px-5 sm:px-8 flex flex-col justify-center py-20">
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl leading-[1.05] mb-10">
-            Consulta nuestros
+        <div className="relative max-w-7xl w-full mx-auto px-5 sm:px-8 py-20">
+          <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl leading-[1.05] text-white">
+            Moviendo
             <br />
-            <span className="italic">productos</span>
+            el mundo
+            <br />
+            Desde 1976
           </h1>
-
-          {/* Search pill */}
-          <form className="flex items-stretch w-full max-w-xl rounded-full border border-white/70 bg-transparent overflow-hidden backdrop-blur-sm">
-            <input
-              type="text"
-              placeholder="Ingresar Producto"
-              className="flex-1 bg-transparent px-6 py-3 text-white placeholder-white/70 focus:outline-none text-sm sm:text-base"
-            />
-            <button
-              type="submit"
-              className="bg-gray-50 text-navy font-bold italic px-6 sm:px-8 py-3 m-1 rounded-full hover:bg-white transition-colors whitespace-nowrap text-sm sm:text-base"
-            >
-              Buscar Stock
-            </button>
-          </form>
-        </div>
-
-        {/* Bottom-left helper */}
-        <div className="relative max-w-7xl w-full mx-auto px-5 sm:px-8 pb-10">
-          <p className="text-sm text-white/80 leading-tight">
-            ¿No lo encuentras?
-            <br />
-            Contáctanos y te ayudamos
-          </p>
         </div>
       </section>
 
-      {/* ¿QUIÉNES SOMOS? */}
-      <section id="quienes-somos" className="bg-navy text-white">
+      {/* ¿Quiénes somos? */}
+      <section className="bg-navy text-white border-t border-white/10">
         <div className="max-w-7xl mx-auto px-5 sm:px-8 py-20 grid lg:grid-cols-2 gap-12 items-center">
           <div>
             <h2 className="text-4xl sm:text-5xl font-bold mb-8">¿Quiénes somos?</h2>
@@ -100,7 +64,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ¿POR QUÉ ELEGIR IVOR BEARINGS? */}
+      {/* ¿Por qué elegir Ivor Bearings? */}
       <section className="bg-navy text-white border-t border-white/10">
         <div className="max-w-7xl mx-auto px-5 sm:px-8 py-20 grid lg:grid-cols-2 gap-12 items-center">
           <div className="relative aspect-[4/3] rounded-lg overflow-hidden order-1">
@@ -136,33 +100,6 @@ export default function HomePage() {
                 ofreciéndole al cliente el mejor servicio posible.
               </p>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* NUESTRAS MARCAS */}
-      <section className="bg-[#e8ecec] py-20 overflow-hidden">
-        <div className="max-w-7xl mx-auto px-5 sm:px-8 mb-12">
-          <h2 className="text-4xl sm:text-5xl font-bold text-navy">NUESTRAS MARCAS</h2>
-        </div>
-        <div className="overflow-hidden">
-          <div className="flex w-max items-center animate-marquee">
-            {[...brandLogos, ...brandLogos].map((logo, i) => (
-              <div
-                key={logo + i}
-                className="shrink-0 px-[10px] w-[calc((100vw-40px)/3)] lg:w-[calc((100vw)/7)]"
-              >
-                <div className="relative h-16 grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition duration-300">
-                  <Image
-                    src={`${BASE}${logo}`}
-                    alt="Marca distribuida por Ivor Bearings"
-                    fill
-                    className="object-contain"
-                    sizes="200px"
-                  />
-                </div>
-              </div>
-            ))}
           </div>
         </div>
       </section>

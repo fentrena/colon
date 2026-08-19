@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, FormEvent } from "react";
-import ImagePlaceholder from "@/components/ImagePlaceholder";
 
 const contactInfo = [
   {
@@ -74,22 +73,10 @@ export default function ContactPage() {
 
   return (
     <>
-      {/* Hero */}
-      <section className="relative bg-primary-900 text-white overflow-hidden">
-        <div className="absolute inset-0">
-          <ImagePlaceholder label="Hero contacto" ratio="" className="w-full h-full rounded-none opacity-20" />
-        </div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
-          <p className="text-primary-200 uppercase tracking-[0.25em] text-sm font-semibold mb-4">
-            Contáctanos
-          </p>
-          <h1 className="text-5xl md:text-6xl font-black mb-6 leading-none">
-            Estamos para<br />ayudarte
-          </h1>
-          <p className="text-lg text-primary-100 max-w-xl leading-relaxed">
-            ¿Tienes alguna consulta o necesitas una cotización? Nuestro equipo de especialistas
-            te responde en menos de 24 horas hábiles.
-          </p>
+      {/* Hero navy simple */}
+      <section className="bg-navy text-white">
+        <div className="max-w-7xl mx-auto px-5 sm:px-8 py-24 md:py-28">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold">Contáctenos</h1>
         </div>
       </section>
 

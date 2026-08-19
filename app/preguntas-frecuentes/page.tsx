@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import type { ReactNode } from "react";
-import ImagePlaceholder from "@/components/ImagePlaceholder";
 
 const faqs: { q: string; a: ReactNode }[] = [
   {
@@ -91,22 +90,10 @@ function FAQItem({ q, a }: { q: string; a: ReactNode }) {
 export default function FAQPage() {
   return (
     <>
-      {/* Hero */}
-      <section className="relative bg-primary-900 text-white overflow-hidden">
-        <div className="absolute inset-0">
-          <ImagePlaceholder label="Hero FAQ" ratio="" className="w-full h-full rounded-none opacity-20" />
-        </div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
-          <p className="text-primary-200 uppercase tracking-[0.25em] text-sm font-semibold mb-4">
-            Preguntas Frecuentes
-          </p>
-          <h1 className="text-5xl md:text-6xl font-black mb-6 leading-none">
-            Resolvemos<br />tus dudas
-          </h1>
-          <p className="text-lg text-primary-100 max-w-xl leading-relaxed">
-            Encuentra respuestas a las preguntas más comunes sobre nuestros productos,
-            procesos de compra y servicios.
-          </p>
+      {/* Hero navy simple */}
+      <section className="bg-navy text-white">
+        <div className="max-w-7xl mx-auto px-5 sm:px-8 py-24 md:py-28 text-center">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold">Preguntas frecuentes</h1>
         </div>
       </section>
 
