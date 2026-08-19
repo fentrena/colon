@@ -8,7 +8,7 @@ const BASE = "https://ivorbearingsint.com/wp-content/uploads";
 
 // Links visibles en la barra principal (los 4 del original)
 const primaryLeft = [
-  { href: "/nuestros-productos", label: "Productos" },
+  { href: "/productos", label: "Productos" },
   { href: "/marcas", label: "Marcas" },
   { href: "/preguntas-frecuentes", label: "FAQ" },
 ];
@@ -16,12 +16,12 @@ const primaryLeft = [
 // Menú lateral completo (hamburguesa)
 const drawerLinks = [
   { href: "/nosotros", label: "Nosotros" },
-  { href: "/nuestros-productos", label: "Productos" },
+  { href: "/productos", label: "Productos" },
   { href: "/marcas", label: "Marcas" },
-  { href: "/catalogos", label: "Catálogo" },
+  { href: "/catalogo", label: "Catálogo" },
   { href: "/preguntas-frecuentes", label: "FAQ" },
   { href: "/blog", label: "Blog" },
-  { href: "/contactanos", label: "Contacto" },
+  { href: "/contacto", label: "Contacto" },
 ];
 
 export default function Navbar() {
@@ -70,7 +70,7 @@ export default function Navbar() {
             <button aria-label="Cambiar idioma" className="hover:opacity-80 transition-opacity">
               <Image src={`${BASE}/2024/05/traduccion-1.png`} alt="Idioma" width={22} height={22} className="w-5 h-5 object-contain" />
             </button>
-            <Link href="/contactanos" className="text-gray-200 hover:text-white transition-colors text-sm">
+            <Link href="/contacto" className="text-gray-200 hover:text-white transition-colors text-sm">
               Contacto
             </Link>
           </div>

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import type { ReactNode } from "react";
+import PageHero from "@/components/PageHero";
 
 const faqs: { q: string; a: ReactNode }[] = [
   {
@@ -90,12 +91,7 @@ function FAQItem({ q, a }: { q: string; a: ReactNode }) {
 export default function FAQPage() {
   return (
     <>
-      {/* Hero navy simple */}
-      <section className="bg-navy text-white">
-        <div className="max-w-7xl mx-auto px-5 sm:px-8 py-24 md:py-28 text-center">
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold">Preguntas frecuentes</h1>
-        </div>
-      </section>
+      <PageHero title="Preguntas frecuentes" chevron={false} />
 
       {/* FAQ */}
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
@@ -111,7 +107,7 @@ export default function FAQPage() {
             Escríbenos o llámanos. Nuestro equipo de especialistas está listo para ayudarte.
           </p>
           <a
-            href="/contactanos"
+            href="/contacto"
             className="inline-block bg-primary-900 hover:bg-primary-700 text-white font-bold px-6 py-3 rounded-lg transition-colors"
           >
             Contactar al Equipo Técnico

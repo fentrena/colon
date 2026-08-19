@@ -79,7 +79,7 @@ export default function BlogPage() {
         <div className="bg-primary-50 border border-primary-100 rounded-xl p-5 text-center mb-10">
           <p className="text-primary-700 text-sm font-medium">
             El blog está en construcción. Los artículos se publicarán progresivamente.{" "}
-            <Link href="/contactanos" className="underline hover:text-primary-900 font-semibold">
+            <Link href="/contacto" className="underline hover:text-primary-900 font-semibold">
               Suscríbete para recibir novedades.
             </Link>
           </p>
@@ -114,7 +114,7 @@ export default function BlogPage() {
             de sus equipos y reducir costos de mantenimiento.
           </p>
           <Link
-            href="/contactanos"
+            href="/contacto"
             className="inline-block bg-white hover:bg-primary-100 text-primary-900 font-bold px-8 py-4 rounded-lg transition-colors"
           >
             Contactar al Equipo Técnico

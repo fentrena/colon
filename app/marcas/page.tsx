@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import PageHero from "@/components/PageHero";
 
 export const metadata: Metadata = {
   title: "Marcas – Ivor Bearings Int",
@@ -30,12 +31,10 @@ const brands = [
 export default function BrandsPage() {
   return (
     <>
-      {/* HERO navy */}
-      <section className="bg-navy text-white">
-        <div className="max-w-7xl mx-auto px-5 sm:px-8 py-24 md:py-28">
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold">Descubra nuestras marcas</h1>
-        </div>
-      </section>
+      <PageHero
+        title="Descubra nuestras marcas"
+        subtitle="Nuestra trayectoria nos ha permitido establecer las mejores relaciones comerciales con los principales proveedores alrededor del mundo."
+      />
 
       {/* Grid de marcas */}
       <section className="bg-white py-16">
