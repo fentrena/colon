@@ -21,6 +21,9 @@ const config: Config = {
           800: "#16243f",
           900: "#101b30",
         },
+        navy: "#1e2749",
+        hero: "#4a4a4a",
+        whatsapp: "#25D366",
       },
       fontFamily: {
         sans: ["Inter", "system-ui", "sans-serif"],
