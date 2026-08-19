@@ -1,7 +1,10 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
+
+const BASE = "https://ivorbearingsint.com/wp-content/uploads";
 
 // Links visibles en la barra principal (los 4 del original)
 const primaryLeft = [
@@ -33,11 +36,9 @@ export default function Navbar() {
             <button
               onClick={() => setOpen(true)}
               aria-label="Abrir menú"
-              className="text-white hover:text-gray-300 transition-colors"
+              className="hover:opacity-80 transition-opacity"
             >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
+              <Image src={`${BASE}/2023/04/menu-1.png`} alt="Menú" width={26} height={26} className="w-6 h-6 object-contain" />
             </button>
             <nav className="hidden md:flex items-center gap-6 text-sm">
               {primaryLeft.map(({ href, label }) => (
@@ -48,16 +49,27 @@ export default function Navbar() {
             </nav>
           </div>
 
-          {/* CENTRO: wordmark */}
+          {/* CENTRO: wordmark PNG */}
           <Link
             href="/"
-            className="absolute left-1/2 -translate-x-1/2 font-display text-white text-lg sm:text-2xl tracking-[0.15em] whitespace-nowrap"
+            aria-label="Ivor Bearings International"
+            className="absolute left-1/2 -translate-x-1/2"
           >
-            IVOR BEARINGS INT
+            <Image
+              src={`${BASE}/2023/04/IVOR-Banners-Web-INT.png`}
+              alt="IVOR Bearings International"
+              width={330}
+              height={30}
+              priority
+              className="h-6 sm:h-7 w-auto"
+            />
           </Link>
 
-          {/* DERECHA: contacto */}
-          <div className="flex items-center">
+          {/* DERECHA: idioma + contacto */}
+          <div className="flex items-center gap-4">
+            <button aria-label="Cambiar idioma" className="hover:opacity-80 transition-opacity">
+              <Image src={`${BASE}/2024/05/traduccion-1.png`} alt="Idioma" width={22} height={22} className="w-5 h-5 object-contain" />
+            </button>
             <Link href="/contactanos" className="text-gray-200 hover:text-white transition-colors text-sm">
               Contacto
             </Link>
@@ -68,10 +80,7 @@ export default function Navbar() {
       {/* Drawer lateral */}
       {open && (
         <div className="fixed inset-0 z-[60]">
-          <div
-            className="absolute inset-0 bg-black/60"
-            onClick={() => setOpen(false)}
-          />
+          <div className="absolute inset-0 bg-black/60" onClick={() => setOpen(false)} />
           <aside className="absolute left-0 top-0 h-full w-72 max-w-[80%] bg-[#111111] text-white shadow-xl p-6 flex flex-col">
             <div className="flex items-center justify-between mb-8">
               <span className="font-display tracking-widest text-sm">MENÚ</span>

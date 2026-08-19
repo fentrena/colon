@@ -1,6 +1,36 @@
-import ImagePlaceholder from "@/components/ImagePlaceholder";
+import Image from "next/image";
 
-const brands = ["SKF", "NSK", "FAG", "Timken", "NTN", "Koyo", "INA", "IKO", "Gates", "Renold"];
+const BASE = "https://ivorbearingsint.com/wp-content/uploads";
+
+const brandLogos = [
+  "/2024/04/1.png",
+  "/2024/04/2.png",
+  "/2024/04/3.png",
+  "/2024/04/4.png",
+  "/2024/04/8.png",
+  "/2024/04/9.png",
+  "/2024/04/10.png",
+  "/2024/04/11.png",
+  "/2024/04/13.png",
+  "/2024/04/14.png",
+  "/2024/04/15.png",
+  "/2024/04/16.png",
+  "/2024/04/17.png",
+  "/2024/04/18.png",
+  "/2024/04/19.png",
+  "/2024/04/22.png",
+  "/2024/04/23.png",
+  "/2024/04/24.png",
+  "/2024/04/25.png",
+  "/2024/04/26.png",
+  "/2024/04/27.png",
+  "/2024/04/28.png",
+  "/2024/04/29.png",
+  "/2024/04/31.png",
+  "/2024/04/32.png",
+  "/2024/04/33.png",
+  "/2024/05/30.png",
+];
 
 export default function HomePage() {
   return (
@@ -57,8 +87,14 @@ export default function HomePage() {
               contamos con más de 500 empleados de diferentes nacionalidades.
             </p>
           </div>
-          <div className="rounded-lg overflow-hidden">
-            <ImagePlaceholder label="Mecánico manipulando rodamiento" ratio="aspect-[4/3]" />
+          <div className="relative aspect-[4/3] rounded-lg overflow-hidden">
+            <Image
+              src={`${BASE}/2024/05/Bearings-06-1.png`}
+              alt="Mecánico manipulando un rodamiento"
+              fill
+              className="object-cover"
+              sizes="(max-width: 1024px) 100vw, 50vw"
+            />
           </div>
         </div>
       </section>
@@ -67,8 +103,14 @@ export default function HomePage() {
       <section className="bg-navy text-white border-t border-white/10">
         <div className="max-w-7xl mx-auto px-5 sm:px-8 py-20 grid lg:grid-cols-2 gap-12 items-center">
           {/* Imagen a la izquierda */}
-          <div className="rounded-lg overflow-hidden order-1">
-            <ImagePlaceholder label="Rodamiento cónico" ratio="aspect-[4/3]" />
+          <div className="relative aspect-[4/3] rounded-lg overflow-hidden order-1">
+            <Image
+              src={`${BASE}/2024/05/Why-Choose-Ivor-Bearings.jpg`}
+              alt="Rodamiento cónico Ivor Bearings"
+              fill
+              className="object-cover"
+              sizes="(max-width: 1024px) 100vw, 50vw"
+            />
           </div>
           {/* Contenido a la derecha */}
           <div className="order-2">
@@ -105,13 +147,21 @@ export default function HomePage() {
           <h2 className="text-4xl sm:text-5xl font-bold text-navy">NUESTRAS MARCAS</h2>
         </div>
         <div className="overflow-hidden">
-          <div className="flex w-max gap-16 animate-marquee px-8">
-            {[...brands, ...brands].map((brand, i) => (
+          <div className="flex w-max items-center animate-marquee">
+            {[...brandLogos, ...brandLogos].map((logo, i) => (
               <div
-                key={brand + i}
-                className="shrink-0 w-32 h-16 flex items-center justify-center grayscale opacity-60"
+                key={logo + i}
+                className="shrink-0 px-[10px] w-[calc((100vw-40px)/3)] lg:w-[calc((100vw)/7)]"
               >
-                <ImagePlaceholder label={brand} ratio="" className="w-full h-full rounded" />
+                <div className="relative h-16 grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition duration-300">
+                  <Image
+                    src={`${BASE}${logo}`}
+                    alt="Marca distribuida por Ivor Bearings"
+                    fill
+                    className="object-contain"
+                    sizes="200px"
+                  />
+                </div>
               </div>
             ))}
           </div>

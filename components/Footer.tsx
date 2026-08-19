@@ -1,7 +1,10 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState, FormEvent } from "react";
+
+const BASE = "https://ivorbearingsint.com/wp-content/uploads";
 
 const menuLinks = [
   { href: "/#quienes-somos", label: "Nosotros" },
@@ -47,15 +50,15 @@ export default function Footer() {
     <footer className="bg-navy text-white">
       <div className="max-w-7xl mx-auto px-5 sm:px-8 py-14">
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10">
-          {/* (a) Mascota */}
+          {/* (a) Mascota (PNG transparente, sin fondo) */}
           <div className="flex items-start justify-center md:justify-start">
-            <div className="w-28 h-36 flex items-center justify-center bg-white/5 border border-dashed border-white/20 text-white/50 rounded-lg">
-              <span className="text-[11px] font-medium uppercase tracking-wide text-center px-2">
-                Mascota
-                <br />
-                IVOR GROUP
-              </span>
-            </div>
+            <Image
+              src={`${BASE}/2024/04/isologo-ivor-1.png`}
+              alt="Mascota IVOR Group"
+              width={160}
+              height={200}
+              className="w-32 h-auto object-contain"
+            />
           </div>
 
           {/* (b) Menú */}
@@ -149,11 +152,15 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Wordmark grande */}
-        <div className="mt-14 pt-8 border-t border-white/10">
-          <p className="font-display text-white/90 text-3xl sm:text-5xl lg:text-6xl tracking-[0.1em] text-right leading-none">
-            IVOR BEARINGS INT
-          </p>
+        {/* Wordmark grande (PNG oficial) */}
+        <div className="mt-14 pt-8 border-t border-white/10 flex justify-end">
+          <Image
+            src={`${BASE}/2024/05/IVOR-Banners-Web-INTazul.png`}
+            alt="IVOR Bearings International"
+            width={640}
+            height={58}
+            className="h-10 sm:h-14 lg:h-16 w-auto"
+          />
         </div>
       </div>
     </footer>
